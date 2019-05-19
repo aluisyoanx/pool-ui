@@ -54,7 +54,7 @@
             <div class="dash-headline-item-three">
               <span id="chartMiners" class="sparkline wd-100p"></span>
               <div>
-                <h2 style="color: white;">
+                <h2 style="color: black;">
                   <span id="poolMiners">N/A</span>
                   <span>(<strong>
                       <span id="poolWorkers">N/A</span></strong>
@@ -70,7 +70,7 @@
             <div class="dash-headline-item-three">
               <span id="chartBlocksFound" class="sparkline wd-100p"></span>
               <div>
-                <h2 style="color: white;">
+                <h2 style="color: black;">
                   <span id="blocksTotal">N/A</span>
                   <br>
                   (<span id="poolLastBlockFound">Never</span>)</h2>
@@ -204,11 +204,11 @@
 
     $('.toggle').toggles({on: true, width: 65, height: 30});
 
-    // get conceal market data
-    $.getJSON("https://api.coingecko.com/api/v3/coins/conceal?sparkline=true", function (data) {
+    // get market data
+    $.getJSON("https://api.coingecko.com/api/v3/coins/aluisyo?sparkline=true", function (data) {
       USDperCCX = data.market_data.current_price.usd;
-      $("#CCXToUSD").html("$ " + data.market_data.current_price.usd.toFixed(2));
-      $("#CCXToBTC").html(data.market_data.current_price.btc.toFixed(8));
+      $("#ANXToUSD").html("$ " + data.market_data.current_price.usd.toFixed(2));
+      $("#ANXToBTC").html(data.market_data.current_price.btc.toFixed(8));
       $("#marketcap").html("$ " + data.market_data.market_cap.usd.toFixed(0));
       $("#marketcapRank").html("(RANK " + data.market_cap_rank + ")");
       $("#dailyVolume").html("$ " + data.market_data.total_volume.usd.toFixed(0));
@@ -487,9 +487,9 @@
         width: '100%',
         height: '55',
         lineColor: '#1372CF',
-        spotColor: '#FFFFFF',
-        maxSpotColor: '#FFFFFF',
-        minSpotColor: '#FFFFFF',
+        spotColor: '#000000',
+        maxSpotColor: '#000000',
+        minSpotColor: '#000000',
         fillColor: 'rgba(3,169,244))'
       });
 
@@ -497,9 +497,9 @@
         width: '100%',
         height: '55',
         lineColor: '#1372CF',
-        spotColor: '#FFFFFF',
-        maxSpotColor: '#FFFFFF',
-        minSpotColor: '#FFFFFF',
+        spotColor: '#000000',
+        maxSpotColor: '#000000',
+        minSpotColor: '#000000',
         fillColor: 'rgba(3,169,244)'
       });
     }
@@ -570,9 +570,9 @@
 
     // Get price in specified currency
     function getCurrencyPriceText(coinsRaw) {
-      if (USDperCCX) {
+      if (USDperANX) {
         var amount = parseFloat((parseInt(coinsRaw || 0) / lastStats.config.coinUnits).toFixed(2));
-        var price = USDperCCX * amount;
+        var price = USDperANX * amount;
         return ("($ " + price.toFixed(2) + ")");
       }
     }
