@@ -209,7 +209,7 @@ function fetchAddressStats(longpoll){
                 }                
             }
             
-            $.getJSON( "https://api.coingecko.com/api/v3/coins/aluisyo?sparkline=true", function( data ) {
+            $.getJSON( "https://api.coingecko.com/api/v3/coins/conceal?sparkline=true", function( data ) {
                 
                 var paidTotalUSD = getReadableCoins(totalCoins, 2, true) * data.market_data.current_price.usd;
                 var paid24hUSD = getReadableCoins(last24hCoins, 2, true) * data.market_data.current_price.usd;
